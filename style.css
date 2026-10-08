@@ -1,0 +1,370 @@
+@font-face {
+    font-family: "VCR OSD Mono";
+    src: url("fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background: linear-gradient(to right, #8c9900, #eaff00);
+    margin: 0;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.backrooms_3{
+    border: 6px solid rgb(72, 69, 0, 0.996);
+    margin: 100px auto;
+    padding: 0;
+}
+
+.backrooms_3 img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.glass-player {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.player-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: min(720px, 420px);
+    height: 40px;
+    padding: 12px 16px;
+    margin: 40px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.play-btn,
+.sound-btn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    color: #000;
+    font-size: 18px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.range-bar {
+    flex: 1;
+    appearance: none;
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.35);
+    outline: none;
+}
+
+.range-bar::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #111;
+    cursor: pointer;
+}
+
+#music {
+    display: none;
+}
+
+.movie{
+    border: 6px solid rgb(72, 69, 0, 0.996);
+    padding: 0;
+    margin: 0px;
+    width: fit-content;
+    max-width: 100%;
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.movie video{
+    display: block;
+    width: min(90vw, 1080px);
+    height: auto;
+}
+
+.map-section{
+    grid-column: 1 / -1;
+    width: min(90vw, 1080px);
+    justify-self: center;
+    color: white;
+}
+
+.map-section iframe{
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+}
+
+.text-with-line {
+    position: relative;
+    padding-left: 24px;
+    border-left: 4px solid rgb(255, 255, 255);
+    margin-left: 8px;
+    box-sizing: border-box;
+}
+
+.line {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: #000;
+    flex-shrink: 0;
+}
+.intro{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 80px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 24px;
+}
+
+.intro .white_text{
+    flex: 1;
+    max-width: 650px;
+    line-height: 1.6;
+    padding-left: 24px;
+    border-left: 4px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+.site-footer{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px;
+    padding: 48px max(6%, calc((100% - 1200px) / 2)) 20px;
+    background: linear-gradient(to top, rgb(74, 66, 0), transparent);
+    color: #fff;
+    font-family: "VCR OSD Mono", monospace;
+}
+
+.footer-section h2{
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.footer-section p{
+    margin: 0 0 10px;
+    line-height: 1.6;
+}
+
+.footer-section a{
+    display: block;
+    width: fit-content;
+    margin: 0 0 10px;
+    color: #fff;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.footer-section a:hover{
+    color: #eaff00;
+}
+
+.footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    padding-top: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+}
+
+nav{
+    background: linear-gradient(to bottom, rgb(74, 66, 0), transparent);
+    padding: 15%;
+    text-align: center;
+}
+
+.site-links{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding: 8px 16px;
+    background-color: rgb(74, 66, 0);
+}
+
+nav:not(.site-links){
+    background-color: rgb(74, 66, 0);
+    background-image:
+        linear-gradient(to right, transparent 25%, rgb(74, 66, 0) 100%),
+        url("backrooms 2.jpg");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    padding: 24px 5%;
+    text-align: left;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.site-links a{
+    color: white;
+    font-family: "VCR OSD Mono", monospace;
+    text-decoration: none;
+}
+
+.title{
+    transform: translateY(-50px);
+    font-size: 125px;
+    text-shadow: -2px -2px 0 #000,
+                 2px -2px 0 #000,
+                -2px  2px 0 #000,
+                 2px  2px 0 #000;
+    font-family: "VCR OSD Mono", monospace;
+    color: white;
+}
+
+.white_text{
+    color: white;
+}
+
+
+@media (max-width: 1024px){
+    main{
+        gap: 16px;
+    }
+
+    .intro{
+        box-sizing: border-box;
+        gap: 24px;
+        padding: 20px;
+    }
+
+    .intro .white_text{
+        max-width: none;
+    }
+
+    .backrooms_3{
+        box-sizing: border-box;
+        max-width: calc(100% - 16px);
+        margin: 60px auto;
+    }
+
+    nav:not(.site-links){
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .title{
+        transform: none;
+        font-size: 80px;
+    }
+
+    .site-footer{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+    }
+}
+
+@media (max-width: 600px){
+    main{
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    main > *{
+        grid-column: 1 / -1;
+        min-width: 0;
+    }
+
+    .intro{
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        padding: 16px;
+    }
+
+    .intro .white_text{
+        padding-left: 16px;
+    }
+
+    .backrooms_3{
+        max-width: calc(100% - 24px);
+        margin: 32px auto;
+    }
+
+    .glass-player{
+        width: 100%;
+        box-sizing: border-box;
+        margin: 12px 0;
+    }
+
+    .player-box{
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 420px;
+        gap: 10px;
+        margin: 16px 12px;
+        padding: 10px 12px;
+    }
+
+    nav:not(.site-links){
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 28px 16px;
+        text-align: center;
+    }
+
+    nav:not(.site-links) img{
+        max-width: 100%;
+        height: auto;
+    }
+
+    .site-links{
+        gap: 22px;
+    }
+
+    .title{
+        font-size: 52px;
+    }
+
+    .footer-bottom{
+        flex-direction: column;
+    }
+
+    .site-footer{
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 32px 6% 20px;
+    }
+}

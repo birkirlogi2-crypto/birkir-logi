@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verkefni 7</title>
+</head>
+<body id="top">
+    <nav class="site-links" aria-label="Page navigation">
+        <a href="#top">Home</a>
+        <a href="#home">About</a>
+        <a href="#media">Media</a>
+    </nav>
+    <nav>
+        <span class="title">backrooms</span>
+
+        <section>
+                <img src="backrooms.jpg" alt="backrooms" width="294" height="441">
+        </section>
+
+    </nav> 
+    <main id="home">
+
+        <div class="intro">
+
+            <section class="white_text text-with-line" id="about"> 
+            Backrooms is a 2026 American psychological horror film[7] directed and co-scored by Kane Parsons (in his feature directorial debut), and written by Will Soodik.[8] It is based on Parsons's web series[9] which was inspired by the "Backrooms" creepypasta. In the film, Clark (Chiwetel Ejiofor), a furniture store owner, and his therapist Mary (Renate Reinsve) discover a dimension of seemingly endless liminal spaces accessed through the store's basement. Mark Duplass, Finn Bennett, and Lukita Maxwell also star.
+            After uploading the web series in January 2022, Parsons was approached by several studios, including A24, about potentially adapting his series into a feature film. In February 2023, it was officially announced that work had begun on a film adaptation of the Backrooms based on Parsons's videos, with him also directing. Roberto Patino was initially set to write the screenplay, but was replaced by Will Soodik. Principal photography took place in Vancouver from July to August 2025.
+            Backrooms premiered at the Aero Theatre in Santa Monica on May 7, 2026, and was theatrically released in the United States by A24 on May 29. It received positive reviews from critics and has grossed $402.5 million worldwide, becoming A24's highest-grossing film to date and making Parsons the youngest filmmaker to reach number one at both the United States and global box offices. Backrooms is the second-highest-grossing horror film of 2026, and the fifth-highest-grossing independent film of all time.
+            </section>
+        </div>
+            
+            <section class="backrooms_3">
+                <img src="backrooms 3.jpg" alt="backrooms" width="auto" height="441">
+            </section>
+
+        <section id="media" class="glass-player">
+            <div class="player-box">
+                <button class="play-btn" aria-label="Play or pause">
+                    <span class="play-label">▶</span>
+                </button>
+                <input type="range" min="0" max="100" value="0" class="range-bar" aria-label="Music progress">
+                <button class="sound-btn" aria-label="Mute or unmute">
+                    <span class="sound-label">🔊</span>
+                </button>
+            </div>
+            <audio id="music" src="A1 - It's just a burning memory_spotdown.org.mp3"></audio>
+        </section>
+
+        <script>
+            const audio = document.getElementById('music');
+            const playBtn = document.querySelector('.play-btn');
+            const playLabel = document.querySelector('.play-label');
+            const soundBtn = document.querySelector('.sound-btn');
+            const soundLabel = document.querySelector('.sound-label');
+            const rangeBar = document.querySelector('.range-bar');
+
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playLabel.textContent = '❚❚';
+                } else {
+                    audio.pause();
+                    playLabel.textContent = '▶';
+                }
+            });
+
+            soundBtn.addEventListener('click', () => {
+                audio.muted = !audio.muted;
+                soundLabel.textContent = audio.muted ? '🔇' : '🔊';
+            });
+
+            rangeBar.addEventListener('input', () => {
+                if (!isNaN(audio.duration) && audio.duration > 0) {
+                    audio.currentTime = (rangeBar.value / 100) * audio.duration;
+                }
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                if (!isNaN(audio.duration) && audio.duration > 0) {
+                    rangeBar.value = (audio.currentTime / audio.duration) * 100;
+                }
+            });
+
+            audio.addEventListener('ended', () => {
+                playLabel.textContent = '▶';
+            });
+        </script>
+
+        <section class="movie">
+            <video controls width="1080" height="auto">
+                <source src="Best Scenes - Backrooms (2026) - DCPRip [1080p] H.264.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="map-section">
+            <h2>Filming Location: Vancouver</h2>
+            <iframe
+                src="https://www.google.com/maps?q=Vancouver%2C%20BC&output=embed"
+                title="Map of Vancouver, British Columbia"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-section">
+            <h2>Backrooms</h2>
+            <p>Only in theaters 29 May 2026.</p>
+        </div>
+        <div class="footer-section">
+            <h2>Explore</h2>
+            <a href="#top">Home</a>
+            <a href="#home">About</a>
+            <a href="#media">Media</a>
+        </div>
+        <div class="footer-section">
+            <h2>Contact</h2>
+            <p>birkir logi</p>
+            <a href="mailto:birkirag26@tskoli.is">birkirag26@tskoli.is</a>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Backrooms</span>
+            <span>Verkefni 7</span>
+        </div>
+    </footer>
+</body>
+</html>
